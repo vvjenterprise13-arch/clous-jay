@@ -1,0 +1,24 @@
+{
+  "functions": {
+    "api/*.php": {
+      "runtime": "vercel-php@0.7.2"
+    }
+  },
+  "routes": [
+    { "src": "/",                    "dest": "/api/index.php" },
+    { "src": "/index",               "dest": "/api/index.php" },
+    { "src": "/cart",                "dest": "/api/cart.php" },
+    { "src": "/address",             "dest": "/api/address.php" },
+    { "src": "/order-summary",       "dest": "/api/order-summary.php" },
+    { "src": "/payment",             "dest": "/api/payment.php" },
+    { "src": "/thankyou",            "dest": "/api/thankyou.php" },
+    { "src": "/singlepageview",      "dest": "/api/singlepageview.php" },
+    { "src": "/category_products",   "dest": "/api/category_products.php" },
+    { "src": "/load_products",       "dest": "/api/load_products.php" },
+    { "src": "/add_to_cart",         "dest": "/api/add_to_cart.php" },
+    { "src": "/remove_from_cart",    "dest": "/api/remove_from_cart.php" },
+    { "src": "/update_cart_quantity","dest": "/api/update_cart_quantity.php" },
+    { "src": "/get_cart_details",    "dest": "/api/get_cart_details.php" },
+    { "src": "/(.*)",                "dest": "/$1" }
+  ]
+}
