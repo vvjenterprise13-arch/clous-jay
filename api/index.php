@@ -1,4 +1,13 @@
 <?php
+
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+$host = getenv('DB_HOST');
+$user = getenv('DB_USER');
+echo "DB_HOST: " . ($host ? $host : 'NOT SET') . "<br>";
+echo "DB_USER: " . ($user ? $user : 'NOT SET') . "<br>";
+
 session_start();
 include('../database/connection.php');
 
