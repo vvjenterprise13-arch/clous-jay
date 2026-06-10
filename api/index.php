@@ -1,12 +1,26 @@
 <?php
-
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-$host = getenv('DB_HOST');
-$user = getenv('DB_USER');
-echo "DB_HOST: " . ($host ? $host : 'NOT SET') . "<br>";
-echo "DB_USER: " . ($user ? $user : 'NOT SET') . "<br>";
+echo "<pre>";
+echo "DB_HOST: " . (getenv('DB_HOST') ?: 'NOT SET') . "\n";
+echo "DB_USER: " . (getenv('DB_USER') ?: 'NOT SET') . "\n";
+echo "DB_NAME: " . (getenv('DB_NAME') ?: 'NOT SET') . "\n";
+
+$conn_test = new mysqli(
+    getenv('DB_HOST'), 
+    getenv('DB_USER'), 
+    getenv('DB_PASS'), 
+    getenv('DB_NAME'), 
+    (int)getenv('DB_PORT')
+);
+if ($conn_test->connect_error) {
+    echo "DB ERROR: " . $conn_test->connect_error . "\n";
+} else {
+    echo "DB CONNECTED OK!\n";
+}
+echo "</pre>";
+die();
 
 session_start();
 include('../database/connection.php');
